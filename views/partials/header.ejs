@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Yelp Camp</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <style>
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  width: auto;
+  opacity: 0;
+  transition: .4s ease;
+  background-color: rgba(255,255,255,0.5);
+}
+
+.yoo:hover .overlay {
+  opacity: 0.8;
+}
+
+.text {
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity:1;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+</style>
+
+</head>
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #406c68;">
+  <div class="container">
+
+
+  <a class="navbar-brand " href="/">YeplCamp</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#clps">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="clps">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"> <a class="nav-link" href="/campgrounds/new">Create</a> </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" ><a class="nav-link" href="#">Login</a></li>
+        <li class="nav-item" ><a class="nav-link" href="#">Sign Up</a></li>
+      </ul>
+
+  </div>
+</div>
+</nav>
+
+<body>
