@@ -3,15 +3,21 @@
 <head>
   <title>Yelp Camp</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
   <style>
 .overlay {
   position: absolute;
-  top: 0;
+  top:0;
   bottom: 0;
-  left: 0;
+  left: 4%;
   right: 0;
-  height: auto;
-  width: auto;
+  height: 64%;
+  width: 92%;
   opacity: 0;
   transition: .4s ease;
   background-color: rgba(255,255,255,0.5);
@@ -22,7 +28,7 @@
 }
 
 .text {
-  color: black;
+  color: rgba(0,0,0,1);
   font-size: 20px;
   position: absolute;
   top: 50%;
@@ -30,6 +36,10 @@
   opacity:1;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+
+  .btn-info{
+    opacity:0;
+  }
 }
 </style>
 
@@ -57,5 +67,7 @@
   </div>
 </div>
 </nav>
+<div class="container">
+
 
 <body>

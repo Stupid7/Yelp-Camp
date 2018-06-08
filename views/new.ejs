@@ -1,4 +1,11 @@
 <% include partials/header %>
+<style>
+    body{
+      background: #4CB8C4;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #3CD3AD, #4CB8C4);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3CD3AD, #4CB8C4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+</style>
 <div class="container">
 <br>
 <h1 style="text-align: center;">Create a NEW Campground</h1>
@@ -16,10 +23,15 @@
     <small class="form-text text-muted" id="urlHelp" >Please Provide Valid URL.</small>
   </div>
   <div class="form-group">
-    <label for="textArea">Example textarea</label>
-    <textarea class="form-control" name="des" id="textArea" rows="3" required></textarea>
+    <label for="text">Sweet Information:</label>
+    <input class="form-control" name="des" id="text" aria-describedby="desHelp" required></input>
+    <small class="form-text text-muted" id="desHelp" >Describe with one or two words.(Example:Highest Mountain, Best Sunrise, etc...)</small>
   </div>
-  <button class="btn btn-outline-info btn-block">Submit</button>
+  <div class="form-group">
+    <label for="textArea">Brief Information:</label>
+    <textarea name="moreDesc" rows="6" cols="60"></textarea>
+  </div>
+  <button class="btn btn-success btn-block">Submit</button>
 
 </form><br>
 <a href="/campgrounds">Back to CampGround</a>
