@@ -1,17 +1,13 @@
 var app             = require('express')();
     bodyParser      = require('body-parser');
     mongoose        = require('mongoose');
+    Campground      = require("./models/campground");
+    seedDB          =require("./seeds");
+
+
+seedDB();
 
 mongoose.connect("mongodb://localhost/yelp_camp");
-
-var campgroundSchema = new mongoose.Schema({
-  name:String,
-  image:String,
-  des:String,
-  moreDesc:String
-});
-
-var Campground = mongoose.model("Campground",campgroundSchema);
 
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended: true}));
@@ -91,13 +87,14 @@ app.get('/campgrounds/new',function(req,res){
 });
 
 app.get('/campgrounds/:id',function(req,res){
-  Campground.findById(req.params.id,function(err,data){
+  Campground.findById(req.params.id).populate("comments").exec(function(err,data){
       if(err){
         console.log("something Went Wrong");
         console.log(err);
       }
       else {
         console.log("campground found by ID-->>>>");
+        console.log(data);
         res.render('show',{campground:data});
       }
   });

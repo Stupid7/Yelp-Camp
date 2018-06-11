@@ -8,10 +8,19 @@
         <p><%= campground.moreDesc %></p>
     </div>
   </div>
+
 <br>
 <div >
   <a href="https://en.wikipedia.org/wiki/<%= campground.name %>" class="btn btn-outline-info btn-block">Click Here For detail Description about <%= campground.name %></a>
 </div>
+<hr>
+<div class="row">
+  <% campground.comments.forEach(function(data){ %>
+    <p>
+        <strong><%= data.author %></strong>:-<%= data.text %>
+    </p>
+  <% }) %>
 
+</div>
 
 <% include partials/footer %>
