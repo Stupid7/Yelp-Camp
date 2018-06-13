@@ -1,0 +1,30 @@
+<% include ../partials/header %>
+<style>
+    body{
+      background: #4CB8C4;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #3CD3AD, #4CB8C4);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3CD3AD, #4CB8C4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+</style>
+<div class="container">
+<br>
+<h1 style="text-align: center;">Post Comment to <%= campground.name %></h1>
+<div style="width: 30%; margin: 0 auto;">
+
+<form  action="/campgrounds/<%= campground._id %>/comments" method="post">
+  <div class="form-group">
+    <label for="inputName">Enter Comment:</label>
+    <input class="form-control" type="text" name="comment[text]" id="inputName" placeholder="text" required>
+  </div>
+
+  <div class="form-group">
+    <label for="inputImage">Enter Author</label>
+    <input class="form-control" type="text" id="inputImage" name="comment[author]" placeholder="author" required>
+  </div>
+  <button class="btn btn-success btn-block">Submit</button>
+
+</form><br>
+<a href="/campgrounds">Back to CampGround</a>
+</div>
+</div>
+<% include ../partials/footer %>

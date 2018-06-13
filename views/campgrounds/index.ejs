@@ -1,0 +1,43 @@
+<% include ../partials/header %>
+<style >
+  body{
+    background: #FEAC5E;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  }
+</style>
+<br>
+<div class="container">
+  <header class="jumbotron">
+  <h1>Welcome to YelpCamp</h1>
+  <p>View our Hand-Pick campground from Nepal.</p>
+  <p>
+      <a class="btn btn-primary btn-large" href="campgrounds/new">Add New Campground</a>
+  </p>
+
+  </header>
+
+<div class="row">
+  <% campground.forEach(function(item){ %>
+    <div class="col-lg-3 col-md-4 col-sm-6 yoo">
+
+      <figure class="figure">
+        <a><img src='<%= item.image %>' class="figure-img img-fluid rounded image"><a/>
+          <!-- <div class="overlay">
+                  <div class="text"> <%= item.des %> </div>
+           </div> -->
+        <figcaption class="figure-caption" style="color:#000428;"><%= item.name %></figcaption>
+      </figure>
+      <p>
+          <a href="/campgrounds/<%= item._id %>" class="btn btn-info">More Info</a>
+      </p>
+
+    </div>
+  <% }); %>
+</div>
+
+
+</div>
+
+<% include ../partials/footer %>

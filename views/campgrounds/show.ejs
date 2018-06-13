@@ -1,0 +1,26 @@
+<% include ../partials/header %>
+<h1><%= campground.name %>:-</h1><h2><%= campground.des %></h2>
+  <div class="row">
+    <div class="col">
+        <img src="<%= campground.image %>">
+    </div>
+    <div class="col">
+        <p><%= campground.moreDesc %></p>
+    </div>
+  </div>
+
+<br>
+<div >
+  <a href="https://en.wikipedia.org/wiki/<%= campground.name %>" class="btn btn-outline-info btn-block">Click Here For detail Description about <%= campground.name %></a>
+</div>
+<hr>
+<p>
+<a class="btn btn-primary" href="/campgrounds/<%= campground._id %>/comments/new">Add New Comment</a>
+</p>
+  <% campground.comments.forEach(function(data){ %>
+    <p>
+        <strong><%= data.author %></strong>:-<%= data.text %><br>
+    </p>
+  <% }) %>
+
+<% include ../partials/footer %>
