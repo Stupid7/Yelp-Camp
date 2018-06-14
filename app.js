@@ -1,9 +1,10 @@
-var app             = require('express')();
+var express         = require('express');
     bodyParser      = require('body-parser');
     mongoose        = require('mongoose');
     Campground      = require("./models/campground");
     Comment         = require("./models/comment");
-    seedDB          =require("./seeds");
+    seedDB          = require("./seeds");
+    app             = express();
 
 
 
@@ -12,8 +13,9 @@ mongoose.connect("mongodb://localhost/yelp_camp_v4");
 
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(__dirname + "/public"));
 
-seedDB();
+// seedDB();
 // Campground.create(
 //   {
 //     name:'Sagarmatha',
