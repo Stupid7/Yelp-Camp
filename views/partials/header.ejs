@@ -60,8 +60,13 @@
       </ul>
 
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item" ><a class="nav-link" href="#">Login</a></li>
-        <li class="nav-item" ><a class="nav-link" href="#">Sign Up</a></li>
+        <% if(!currentUser){ %>
+          <li class="nav-item" ><a class="nav-link" href="/login">Login</a></li>
+          <li class="nav-item" ><a class="nav-link" href="/register">Sign Up</a></li>
+        <% }else{ %>
+            <span class="navbar-text">Hi <%= currentUser.username %></span>
+            <li class="nav-item" ><a class="nav-link" href="/logout">Log Out</a></li>
+        <% } %>
       </ul>
 
   </div>
