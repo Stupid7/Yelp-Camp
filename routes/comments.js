@@ -24,18 +24,27 @@ router.post("/",isLoggedIn,function(req,res){
       res.redirect("/campgrounds");
     }
     else {
+      // console.log("req.body.params"+req.body.comment);
       Comment.create(req.body.comment,function(err,datas){
         if(err){
           console.log(err);
         }
         else {
+          // console.log(datas);
+          datas.author.id = req.user._id;
+          datas.author.username = req.user.username;
+          datas.save();
+          // console.log(datas);
+          // console.log("Username  Dtasadas is "+ datas.author.username);
           data.comments.push(datas);
           data.save();
           res.redirect("/campgrounds/"+data._id);
         }
+        // console.log("=======>>>>>>>>>==========="+comments);
       });
     }
   });
+
 });
 
 function isLoggedIn(req,res,next){

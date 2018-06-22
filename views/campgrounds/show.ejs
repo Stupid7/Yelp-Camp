@@ -16,16 +16,19 @@
         <h4 class="float-right">$9.00/night</h4>
         <a href=""><h4><%= campground.name %></h4></a><h5>(<%= campground.des %>)</h5>
         <p><%= campground.moreDesc %></p>
+        <p>
+            <em>Submitted BY <%= campground.author.username %></em>
+        </p>
       </div>
     </div>
     <br>
     <a class="btn btn-secondary btn-block" href="/campgrounds/<%= campground._id %>/comments/new">Add New Comment</a>
-    <% campground.comments.forEach(function(data){ %>
+    <% campground.comments.forEach(function(comment){ %>
     <div class="card bg-light">
       <div class="card-body">
-        <strong class="card-title"><%= data.author %></strong>
+        <strong class="card-title"><%= comment.author.username %></strong>
         <span class="float-right">10 days ago</span>
-        <p class="card-text"><%= data.text %></p>
+        <p class="card-text"><%= comment.text %></p>
       </div>
     </div>
     <% }) %>
