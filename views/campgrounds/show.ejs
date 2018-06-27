@@ -19,6 +19,12 @@
         <p>
             <em>Submitted BY <%= campground.author.username %></em>
         </p>
+        <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
+        <a class="btn btn-sm btn-outline-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+        <form id="form_delete" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="post">
+          <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+        </form>
+        <% } %>
       </div>
     </div>
     <br>
@@ -29,12 +35,18 @@
         <strong class="card-title"><%= comment.author.username %></strong>
         <span class="float-right">10 days ago</span>
         <p class="card-text"><%= comment.text %></p>
+        <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+        <a class="btn btn-sm btn-outline-warning" href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">Edit</a>
+        <form id="form_delete" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="post">
+          <input type="submit"  class="btn btn-sm btn-outline-danger" value="Delete">
+        </form>
+        <% } %>
       </div>
     </div>
     <% }) %>
   </div>
 </div>
-<br>
+<hr>
 <div >
   <a href="https://en.wikipedia.org/wiki/<%= campground.name %>" class="btn btn-outline-info btn-block">Click Here For detail Description about <%= campground.name %></a>
 </div>

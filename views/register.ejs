@@ -1,10 +1,29 @@
 <% include ./partials/header %>
-<h1>Sign-Up</h1>
 
-<form  action="/register" method="post">
-  <input type="text" name="username" placeholder="username">
-  <input type="password" name="password" placeholder="password">
-  <button type="submit">SignUp</button>
+<h1 class="display-4">Sign-Up</h1>
+
+
+<form action="/register" method="post">
+  <div class="form-row align-items-center">
+    <div class="col-auto">
+      <label class="sr-only" for="inlineFormInput">Password</label>
+      <input type="password" class="form-control mb-2" id="inlineFormInput" placeholder="Password" name="password">
+    </div>
+    <div class="col-auto">
+      <label class="sr-only" for="inlineFormInputGroup">Username</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">@</div>
+        </div>
+        <input type="text" name="username" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+      </div>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-success mb-2">SignUp</button>
+    </div>
+  </div>
 </form>
+
+
 
 <% include ./partials/footer %>
