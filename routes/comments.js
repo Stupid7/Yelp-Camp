@@ -39,6 +39,7 @@ router.post("/", middleware.isLoggedIn,function(req,res){
           // console.log("Username  Dtasadas is "+ datas.author.username);
           data.comments.push(datas);
           data.save();
+          req.flash("success","Successfully added New Comment.")
           res.redirect("/campgrounds/"+data._id);
         }
         // console.log("=======>>>>>>>>>==========="+comments);
@@ -66,6 +67,7 @@ router.put("/:comment_id", middleware.checkCommentOwnership,function(req,res){
       res.redirect("back");
     }
     else {
+      req.flash("Success","Successfully Updated Comment.");
       res.redirect("/campgrounds/"+req.params.id);
     }
   });
@@ -78,6 +80,7 @@ router.delete("/:comment_id", middleware.checkCommentOwnership,function(req,res)
       res.redirect("back");
     }
     else {
+      req.flash("success","Selected comment is Deleted.");
       res.redirect("/campgrounds/"+req.params.id);
     }
   });
